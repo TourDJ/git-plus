@@ -691,10 +691,7 @@ Git 使用两种主要类型的标签：轻量标签（lightweight）与附注�
         git push -u origin master
    如果初次提交的代码与服务器有冲突，需要先执行 git pull 同步代码。
    
-.gitkeep文件
-
-git 是不允许提交一个空的目录到版本库上的,可以在空的文件夹里面建立一个.gitkeep文件，然后提交去即可。其实在git中 .gitkeep 就是一个占位符。
-   
+  
 ***
 
 
