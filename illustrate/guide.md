@@ -675,21 +675,7 @@ Git 使用两种主要类型的标签：轻量标签（lightweight）与附注�
  * 穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
  * 要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 
-***
 
- 4 如何江本地项目与远程仓库（如：github）关联    
- * 首先将本地项目转换成 git 项目：
- 
-        git init
-        git add .
-        git commit -m 'say something...'
- * 接着在远程仓库如 github 创建一个同名项目，创建后获取仓库地址，执行以下命令：
- 
-        git remote add origin git@github.com:yourname/仓库名.git
- * 现在可以提交代码：
- 
-        git push -u origin master
-   如果初次提交的代码与服务器有冲突，需要先执行 git pull 同步代码。
    
   
 ***
