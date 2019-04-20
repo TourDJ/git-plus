@@ -68,7 +68,6 @@ replays some or all of your commits on a new base, allowing you to squash (or mo
     a---b
 
 
-So the differences are:
 所以，[squash 和 rebase 的不同点](https://stackoverflow.com/questions/2427238/in-git-what-is-the-difference-between-merge-squash-and-rebase)是：
 * squash 不会改变原分支内容，而是创建一个单独的提交内容
 * rebase 是在原分支上操作，要么创建一个新基，要么保持一个干净的历史。
