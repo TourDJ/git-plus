@@ -52,8 +52,7 @@ git 在使用 `merge pull request` 合并代码的时候，有三种方式：
 最后，删除 develop 分支。
 
 ### git rebase --interactive
-记录下该分支中部分或全部提交内容，添加到目标分支中
-replays some or all of your commits on a new base, allowing you to squash (or more recently "fix up", see this SO question), 
+记录下该分支中部分或全部提交内容，添加到目标分支中。
 
 还以上面的例子说明，执行：
 
