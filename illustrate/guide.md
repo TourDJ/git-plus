@@ -9,7 +9,9 @@
 
 ## <a id="git_command">git 命令<a/>
 
-### <a id="git_init">git init 在现有目录中初始化仓库<a/>
+### <a id="git_init">初始化<a/>
+  
+git init 在现有目录中初始化仓库  
 
 如果你打算使用 Git 来对现有的项目进行管理，你只需要进入该项目目录并输入：
 
@@ -666,36 +668,7 @@ Git 使用两种主要类型的标签：轻量标签（lightweight）与附注�
     git push -u master origin -f
 此时，SHA 对应的版本之后所有的版本就被覆盖了，所以需要谨慎处理，最好做个备份。
 
-***
 
-3 HEAD 的含义
-在git中，用HEAD表示当前版本，也就是最新的提交，比如：3628164...882e1e0，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
-
- * HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
- * 穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
- * 要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
-
-***
-
- 4 如何江本地项目与远程仓库（如：github）关联    
- * 首先将本地项目转换成 git 项目：
- 
-        git init
-        git add .
-        git commit -m 'say something...'
- * 接着在远程仓库如 github 创建一个同名项目，创建后获取仓库地址，执行以下命令：
- 
-        git remote add origin git@github.com:yourname/仓库名.git
- * 现在可以提交代码：
- 
-        git push -u origin master
-   如果初次提交的代码与服务器有冲突，需要先执行 git pull 同步代码。
-   
-.gitkeep文件
-
-git 是不允许提交一个空的目录到版本库上的,可以在空的文件夹里面建立一个.gitkeep文件，然后提交去即可。其实在git中 .gitkeep 就是一个占位符。
-   
-***
 
 
 
