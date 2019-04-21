@@ -668,7 +668,8 @@ git diff 比较文件的差异
 保存在内存中：
 
     git config --global credential.helper cache
-    which tells git to keep your password cached in memory for (by default) 15 minutes. You can set a longer timeout with:
+which tells git to keep your password cached in memory for (by default) 15 minutes. You can set a longer timeout with:
+    
     git config --global credential.helper "cache --timeout=3600"
 
 保存在磁盘上：
