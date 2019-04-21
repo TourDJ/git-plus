@@ -21,12 +21,12 @@
   - [推送到远程仓库](#git_push)     
   - [储藏你的工作](#git_stash)     
   - [显示整个本地仓储的提交](#git_reflog)      
-  - [逐行显示该文件的修改记录](#git_blame)     
-  - [比较文件的差异](#git_diff)  
-  - [存储用户名与密码](#git_username)     
+  - [逐行显示该文件的修改记录](#git_blame)         
   - [远程仓库回滚](#git_rollback)          
   - [分支](#git_branch)     
   - [标签](#git_tag)      
+  - [比较文件的差异](#git_diff)  
+  - [存储用户名与密码](#git_username) 
   
 ***
 
@@ -440,25 +440,6 @@ git blame 逐行显示该文件的修改记录
 
 ***
 
-### <a id="git_diff">比较文件的差异<a/>
-git diff 比较文件的差异
-[git diff](http://blog.csdn.net/csfreebird/article/details/8044796) 可以比较working tree同index之间，index和git directory之间，working tree和git directory之间，git directory中不同commit之间的差异。
-
-***
-
-### <a id="git_username">存储用户名与密码<a/>
-保存在内存中：
-
-    git config --global credential.helper cache
-    which tells git to keep your password cached in memory for (by default) 15 minutes. You can set a longer timeout with:
-    git config --global credential.helper "cache --timeout=3600"
-
-保存在磁盘上：
-
-    git config --global credential.helper store
-
-***
-
 ### <a id="git_rollback">远程仓库回滚<a/>
 
 #### 删除最后一次提交 git revert
@@ -466,17 +447,19 @@ git diff 比较文件的差异
 
     git revert HEAD
     git push origin master
-> revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在; 而reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录。
+
+* revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在; 
+* 而reset是指将 HEAD 指针指到指定提交，历史记录中不会出现放弃的提交记录。
 
 #### 删除历史某次提交(git rebase) 
 这种情况需要先用git log命令在历史记录中查找到想要删除的某次提交的commit id， 然后执行以下命令：
 
     git rebase -i "commit id"^
-> "commit id"替换为想要删除的提交的"commit id"，需要注意最后的^号，意思是commit id的前一次提交。
+"commit id"替换为想要删除的提交的"commit id"，需要注意最后的^号，意思是commit id的前一次提交。
 命令:
 
     git rebase -i  [startpoint]  [endpoint]
-其中-i的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint]  [endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支HEAD所指向的commit(注：该区间指定的是一个前开后闭的区间)。
+其中-i的意思是--interactive，即弹出交互式的界面让用户编辑完成合并操作，[startpoint] 和 [endpoint]则指定了一个编辑区间，如果不指定[endpoint]，则该区间的终点默认是当前分支HEAD所指向的commit(注：该区间指定的是一个前开后闭的区间)。
 
 执行该条命令之后会打开一个编辑框，列出了包含该次提交在内之后的所有提交:
 
@@ -527,7 +510,6 @@ pick 925e14a 4 commit
 > 需要注意的是，在执行rebase命令对指定提交修改或删除之后，该次提交之后的所有提交的"commit id"都会改变。
 
 
-
 ***
 
 ### <a id="git_branch">分支<a/>
@@ -560,7 +542,7 @@ pick 925e14a 4 commit
 
         git log --oneline --decorate --graph --all
 
-#### 配置 git lg 可以看到彩色的日志
+配置 git lg 可以看到彩色的日志
     
     git config --global alias.lg "log --color --graph 
     --pretty=format:'%Cred%h%Creset 
@@ -673,6 +655,25 @@ Git 使用两种主要类型的标签：轻量标签（lightweight）与附注�
 #### 查看本地 tag
 
     git tag
+
+***
+
+### <a id="git_diff">比较文件的差异<a/>
+git diff 比较文件的差异
+[git diff](http://blog.csdn.net/csfreebird/article/details/8044796) 可以比较working tree同index之间，index和git directory之间，working tree和git directory之间，git directory中不同commit之间的差异。
+
+***
+
+### <a id="git_username">存储用户名与密码<a/>
+保存在内存中：
+
+    git config --global credential.helper cache
+    which tells git to keep your password cached in memory for (by default) 15 minutes. You can set a longer timeout with:
+    git config --global credential.helper "cache --timeout=3600"
+
+保存在磁盘上：
+
+    git config --global credential.helper store
 
 ***
 
