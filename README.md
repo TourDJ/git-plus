@@ -10,3 +10,14 @@ Gist is a VCS, which is different from others, such as cvs, svn, git thinks of i
 First we see the git theory graphic:
 ![Git theory](https://github.com/TourDJ/git-plus/blob/master/images/git-theory.jpg)     
 
+Then base on the graphic explain how git works:
+Apparently, git have local and remote repository, and the local
+
+Remember that each file in your working directory can be in one of two states: tracked or untracked. 
+
+* workspace: our local work playground, when we change the code and exec `git add *` will commit the change to workplace.
+* index: staged area.
+* repository: local repostory.
+* remote: remote repository, such as github, gitlab, i.e.
+
+
