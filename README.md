@@ -19,7 +19,7 @@ Apparently, git have local and remote repository, index and workspace area:
 * remote: remote repository, such as github, gitlab, i.e.
 
 
-![lifecycle](https://github.com/TourDJ/git-plus/blob/master/images/lifecycle.png)   
-
 Remember that each file in your working directory can be in one of two states: tracked or untracked. 
+
+![lifecycle](https://github.com/TourDJ/git-plus/blob/master/images/lifecycle.png)   
 
