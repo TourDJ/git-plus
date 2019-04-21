@@ -541,30 +541,32 @@ pick 925e14a 4 commit
 
         git checkout testing
 
+#### 删除分支
+
+        git branch -d testing
+   
 #### 新建一个分支并同时切换到那个分支上
 运行一个带有 -b 参数的 git checkout 命令
 
         git checkout -b iss53
         
-#### 你可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
+#### 查看分支
+你可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
         git log --oneline --decorate
 
-* 输出你的提交历史、各个分支的指向以及项目的分支分叉情况
+
+输出你的提交历史、各个分支的指向以及项目的分支分叉情况
 
         git log --oneline --decorate --graph --all
 
-* 配置 git lg 可以看到彩色的日志
+#### 配置 git lg 可以看到彩色的日志
     
     git config --global alias.lg "log --color --graph 
     --pretty=format:'%Cred%h%Creset 
     -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-
-* 删除分支
-
-        git branch -d testing
-    
-* 跟踪分支       
+ 
+#### 跟踪分支       
 从一个远程跟踪分支检出一个本地分支会自动创建一个叫做 “跟踪分支”（有时候也叫做 “上游分支”）。
 
 Git 提供了 --track 快捷方式：
@@ -581,9 +583,6 @@ Git 提供了 --track 快捷方式：
  
 查看设置的所有跟踪分支
 
-    git branch 的 -vv 
-例如：
-
     $ git branch -vv
       iss53     7e424c3 [origin/iss53: ahead 2] forgot the brackets
       master    1ae2a45 [origin/master] deploying index fix
@@ -599,7 +598,7 @@ Git 提供了 --track 快捷方式：
 
     $ git fetch --all; git branch -vv    
  
-* 删除远程分支        
+#### 删除远程分支        
 从服务器上删除 serverfix 分支，运行下面的命令：
 
     $ git push origin --delete serverfix
@@ -612,7 +611,13 @@ Git 提供了 --track 快捷方式：
 > 有待验证?
 
 
-* 创建远程分支      
+
+    git push origin :branch-name
+
+冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
+
+
+#### 创建远程分支      
 git push origin master 命令在没有track远程分支的本地分支中默认提交的master分支，因为master分支默认指向了origin master 分支。
 
 如果想把本地的某个分支提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，那么可以这么做。
@@ -624,10 +629,6 @@ git push origin master 命令在没有track远程分支的本地分支中默认�
 ***
 
 ### <a id="git_tag">标签</a>
-git tag 标签
-#### 查看本地 tag
-
-    git tag
 
 #### 创建标签   
 Git 使用两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）。     
@@ -668,13 +669,10 @@ Git 使用两种主要类型的标签：轻量标签（lightweight）与附注�
 
     git push origin –delete v1.0.3
 
-***
 
-#### 删除远程分支
+#### 查看本地 tag
 
-    git push origin :branch-name
-
-冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
+    git tag
 
 ***
 
