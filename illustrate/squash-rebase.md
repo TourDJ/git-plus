@@ -70,3 +70,5 @@ git 在使用 `merge pull request` 合并代码的时候，有三种方式：
 所以，[squash 和 rebase 的不同点](https://stackoverflow.com/questions/2427238/in-git-what-is-the-difference-between-merge-squash-and-rebase)是：
 * squash 不会改变原分支内容，而是创建一个单独的提交内容
 * rebase 是在原分支上操作，要么创建一个新基，要么保持一个干净的历史。
+
+[Trimming Git Commits/Squashing Git History](https://stackoverflow.com/questions/2302736/trimming-git-commits-squashing-git-history/2302947#2302947)     
