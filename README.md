@@ -1,5 +1,5 @@
 # git-plus
-Here record git's daily common command, mealwhile also descrilbe some classic scenario. 
+Here is git playground, record git's daily common command, mealwhile also descrilbe some classic scenario. 
 
 Enjoy yourself!
 
