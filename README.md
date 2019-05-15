@@ -25,6 +25,7 @@ Git 的工作原理图
 * index: staged area.
 * repository: local repostory.
 * remote: remote repository, such as github, gitlab, i.e.
+
 Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。
 
 工作目录是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。
