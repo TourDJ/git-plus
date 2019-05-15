@@ -25,7 +25,17 @@ Git 的工作原理图
 * index: staged area.
 * repository: local repostory.
 * remote: remote repository, such as github, gitlab, i.e.
+Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地方。 这是 Git 中最重要的部分，从其它计算机克隆仓库时，拷贝的就是这里的数据。
 
+工作目录是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。
+
+暂存区域是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。 有时候也被称作\'索引\'，不过一般说法还是叫暂存区域。
+
+基本的 Git 工作流程如下：
+
+* 在工作目录中修改文件。
+* 暂存文件，将文件的快照放入暂存区域。
+* 提交更新，找到暂存区域的文件，将快照永久性存储到 Git 仓库目录。
 
 Remember that each file in your working directory can be in one of two states: tracked or untracked. 
 
