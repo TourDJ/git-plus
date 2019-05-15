@@ -1,6 +1,6 @@
 
-[git 命令](#git_command)    
-  - [初始化](#git_init)  
+[git 命令](./base-command.md#git_command)    
+  - [初始化](./base-command.md#git_init)  
   - [克隆](#git_clone)     
   - [检查状态](#git_status)    
   - [跟踪新文件](#git_add)      
