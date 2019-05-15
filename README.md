@@ -33,4 +33,4 @@ Remember that each file in your working directory can be in one of two states: t
 
 ## Use git
 
-[Git 常用的命令]()    
+[Git 基本使用](./illustrate/index.md)    
