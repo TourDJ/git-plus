@@ -656,8 +656,11 @@ git commit -m "first commit"
 git remote add origin git@github.com:TourDJ/locallibrary.git
 git push -u origin master
 ```
+当拉取代码是出现： `fatal: refusing to merge unrelated histories`
+执行以下代码
 
-
+    git pull origin master --allow-unrelated-histories
+    git push --set-upstream origin master
 
 
 
