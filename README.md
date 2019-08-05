@@ -47,4 +47,12 @@ Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地�
 
 ## Use git
 
-[Git 基本使用](./illustrate/index.md)    
+* [Git 基本使用](./illustrate/index.md)      
+* [git 更新 fork 的 repository](./illustrate/fork-update.md)      
+* [将本地项目与远程仓库关联](./illustrate/add-remote.md)      
+* [HEAD 的含义](./illustrate/head.md)      
+* [忽略文件](./illustrate/ignore.md)       
+* [git merge --squash 和 rebase 区别](.//illustrate/squash-rebase.md)     
+
+
+
