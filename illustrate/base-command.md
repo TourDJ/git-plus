@@ -1,4 +1,21 @@
 
+- [查看远程仓库](./base-command.md#git_remote)      
+  - [添加远程仓库](./base-command.md#git_remoteadd)      
+  - [查看远程仓库详细信息](./base-command.md#git_remoteshow)       
+  - [远程仓库的重命名](./base-command.md#git_remoterename)      
+  - [远程仓库的移除](./base-command.md#git_remoterm)     
+  - [更新获取地址方式](./base-command.md#git_remoteseturl)    
+- [从远程仓库中拉取](./base-command.md#git_fetch)     
+- [从远程仓库中抓取与合并](./base-command.md#git_pull)     
+- [推送到远程仓库](./base-command.md#git_push)     
+- [储藏你的工作](./base-command.md#git_stash)     
+- [显示整个本地仓储的提交](./base-command.md#git_reflog)      
+- [逐行显示该文件的修改记录](./base-command.md#git_blame)         
+- [远程仓库回滚](./base-command.md#git_rollback)            
+- [标签](./base-command.md#git_tag)      
+- [比较文件的差异](./base-command.md#git_diff)  
+- [存储用户名与密码](./base-command.md#git_username) 
+
 ## <a id="git_command">git 命令<a/>
 
 ### <a id="git_init">初始化<a/>
