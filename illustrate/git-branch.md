@@ -25,6 +25,7 @@ Git 分支及其提交历史
         git branch testing
 
 ### <a id="branch_checkout">切换分支</a>
+分支切换会改变你工作目录中的文件。在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。
 
         git checkout testing
 
@@ -40,12 +41,18 @@ Git 分支及其提交历史
 ### <a id="branch_log">查看分支</a>
 你可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
-        git log --oneline --decorate
+    git log --oneline --decorate
 
 
 输出你的提交历史、各个分支的指向以及项目的分支分叉情况
 
-        git log --oneline --decorate --graph --all
+    $ git log --oneline --decorate --graph --all
+    * c2b9e (HEAD, master) made other changes
+    | * 87ab2 (testing) made a change
+    |/
+    * f30ab add feature #32 - ability to add new formats to the
+    * 34ac2 fixed bug #1328 - stack overflow under certain conditions
+    * 98ca9 initial commit of my project
 
 配置 git lg 可以看到彩色的日志
     
