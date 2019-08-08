@@ -1,7 +1,6 @@
 
 - [分支](#branch)     
-  - [创建分支](#branch_add)     
-    - [新建并切换分支](#branch_addcheckout)  
+  - [分支创建](#branch_add)     
   - [切换分支](#branch_checkout)    
   - [删除分支](#branch_delete)       
   - [查看分支](#branch_log)     
@@ -21,20 +20,31 @@ Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git
 ![Git theory](../images/branch-and-history.png)    
 Git 分支及其提交历史
 
-### <a id="branch_add">创建分支</a>
+### <a id="branch_add">分支创建</a>
 创建分支命令
 
-    git branch testing
+    $ git branch testing
 git branch 命令仅仅创建一个新分支，并不会自动切换到新分支中去。
-   
-#### <a id="branch_addcheckout">新建并切换分支</a>
-新建一个分支并同时切换到那个分支上， 运行一个带有 -b 参数的 git checkout 命令
+
+如何实现新建一个分支并同时切换到那个分支上？      
+运行一个带有 -b 参数的 git checkout 命令
 
     $ git checkout -b iss53
 它是下面两条命令的简写：
 
     $ git branch iss53
     $ git checkout iss53
+
+根据历史提交创建分支。    
+You can create the branch via a hash:
+
+    git branch branchname <sha1-of-commit>
+Or by using a symbolic reference:
+
+    git branch branchname HEAD~3
+To checkout the branch when creating it, use
+
+    git checkout -b branchname <sha1-of-commit or HEAD~3>
 
 ### <a id="branch_checkout">切换分支</a>
 分支切换会改变你工作目录中的文件。在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。
