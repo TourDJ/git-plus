@@ -75,7 +75,7 @@ To checkout the branch when creating it, use
 
 例如：
 
-    git log --pretty=fuller
+    $ git log --pretty=fuller
     显示格式：
     commit <sha1>
     Author:     <author>
@@ -87,7 +87,9 @@ To checkout the branch when creating it, use
 
 自定义值示例：
 
-    git log --pretty=format:"%h [[%s]] %cd"
+    $ git log --pretty=format:"%h [[%s]] %cd"
+    6bc023d [[modify material tech check]] Wed Jan 16 20:58:57 2019 +0800
+
 详细说明见官方文档。
 
 * 配置 git lg 可以看到彩色的日志
