@@ -39,7 +39,7 @@ depth 用于指定克隆深度，为1即表示只克隆最近一次commit。
     
 克隆指定分支的代码
 
-    git clone -b 分支名 仓库地址
+    git clone -b 分支名 仓库地址
 
 ***
 
