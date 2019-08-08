@@ -1,9 +1,9 @@
 
 - [分支](#branch)     
   - [创建分支](#branch_add)     
+    - [新建并切换分支](#branch_addcheckout)  
   - [切换分支](#branch_checkout)    
-  - [删除分支](#branch_delete)    
-  - [新建并切换分支](#branch_addcheckout)     
+  - [删除分支](#branch_delete)       
   - [查看分支](#branch_log)     
   - [跟踪分支](#branch_track)     
   - [创建远程分支](#branch_remoteadd)     
@@ -11,6 +11,9 @@
 
 
 ## <a id="branch">分支<a/>
+
+`git branch`: 分支操作命令
+
 Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。在进行提交操作时，Git 会保存一个提交对象（commit object）。
   
 Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 它会在每次的提交操作中自动向前移动。Git 的 “master” 分支并不是一个特殊分支。 它就跟其它分支完全没有区别。 之所以几乎每一个仓库都有 master 分支，是因为 git init 命令默认创建它，并且大多数人都懒得去改动它。
@@ -18,11 +21,20 @@ Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git
 ![Git theory](../images/branch-and-history.png)    
 Git 分支及其提交历史
 
-`git branch`: 分支操作命令
-
 ### <a id="branch_add">创建分支</a>
+创建分支命令
 
-        git branch testing
+    git branch testing
+git branch 命令仅仅创建一个新分支，并不会自动切换到新分支中去。
+   
+#### <a id="branch_addcheckout">新建并切换分支</a>
+新建一个分支并同时切换到那个分支上， 运行一个带有 -b 参数的 git checkout 命令
+
+    $ git checkout -b iss53
+它是下面两条命令的简写：
+
+    $ git branch iss53
+    $ git checkout iss53
 
 ### <a id="branch_checkout">切换分支</a>
 分支切换会改变你工作目录中的文件。在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。
@@ -32,11 +44,6 @@ Git 分支及其提交历史
 ### <a id="branch_delete>删除分支</a>
 
         git branch -d testing
-   
-### <a id="branch_addcheckout">新建并切换分支</a>
-新建一个分支并同时切换到那个分支上， 运行一个带有 -b 参数的 git checkout 命令
-
-        git checkout -b iss53
         
 ### <a id="branch_log">查看分支</a>
 你可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
