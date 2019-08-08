@@ -26,7 +26,7 @@ Git 分支及其提交历史
     $ git branch testing
 git branch 命令仅仅创建一个新分支，并不会自动切换到新分支中去。
 
-如何实现新建一个分支并同时切换到那个分支上？      
+#### 如何实现新建一个分支并同时切换到那个分支上？      
 运行一个带有 -b 参数的 git checkout 命令
 
     $ git checkout -b iss53
@@ -35,7 +35,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     $ git branch iss53
     $ git checkout iss53
 
-根据历史提交创建分支。    
+#### 根据历史提交创建分支。    
 You can create the branch via a hash:
 
     git branch branchname <sha1-of-commit>
@@ -59,7 +59,7 @@ To checkout the branch when creating it, use
 你可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
 
     git log --oneline --decorate
-
+将单行显示每一条提交记录。
 
 输出你的提交历史、各个分支的指向以及项目的分支分叉情况
 
@@ -71,7 +71,26 @@ To checkout the branch when creating it, use
     * 34ac2 fixed bug #1328 - stack overflow under certain conditions
     * 98ca9 initial commit of my project
 
-配置 git lg 可以看到彩色的日志
+`git log --pretty[=<format>]` 指定显示格式。其中，format 可以是预设的值，也可以是自定义值。 
+
+例如：
+
+    git log --pretty=fuller
+    显示格式：
+    commit <sha1>
+    Author:     <author>
+    AuthorDate: <author date>
+    Commit:     <committer>
+    CommitDate: <committer date>
+    <title line>
+    <full commit message>
+
+自定义值示例：
+
+    git log --pretty=format:"%h [[%s]] %cd"
+详细说明见官方文档。
+
+* 配置 git lg 可以看到彩色的日志
     
     git config --global alias.lg "log --color --graph 
     --pretty=format:'%Cred%h%Creset 
