@@ -11,8 +11,6 @@
 
 ## <a id="branch">分支<a/>
 
-`git branch`: 分支操作命令
-
 Git 保存的不是文件的变化或者差异，而是一系列不同时刻的文件快照。在进行提交操作时，Git 会保存一个提交对象（commit object）。
   
 Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 它会在每次的提交操作中自动向前移动。Git 的 “master” 分支并不是一个特殊分支。 它就跟其它分支完全没有区别。 之所以几乎每一个仓库都有 master 分支，是因为 git init 命令默认创建它，并且大多数人都懒得去改动它。
@@ -26,7 +24,8 @@ Git 分支及其提交历史
     $ git branch testing
 git branch 命令仅仅创建一个新分支，并不会自动切换到新分支中去。
 
-#### 如何实现新建一个分支并同时切换到那个分支上？      
+* 如何实现新建一个分支并同时切换到那个分支上？      
+
 运行一个带有 -b 参数的 git checkout 命令
 
     $ git checkout -b iss53
@@ -35,7 +34,8 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     $ git branch iss53
     $ git checkout iss53
 
-#### 根据历史提交创建分支。    
+* 根据历史提交创建分支。    
+
 You can create the branch via a hash:
 
     git branch branchname <sha1-of-commit>
@@ -56,12 +56,15 @@ To checkout the branch when creating it, use
         git branch -d testing
         
 ### <a id="branch_log">查看分支</a>
-你可以简单地使用 git log 命令查看各个分支当前所指的对象。 提供这一功能的参数是 --decorate。
+查看分支的命令使用 `git log`，该命令有许多选项， 详细使用方法见官方文档。
+
+* 你可以简单地使用 git log 命令查看各个分支当前所指的对象。     
+提供这一功能的参数是 --decorate。
 
     git log --oneline --decorate
-将单行显示每一条提交记录。
+该命令是单行及sha1缩写的方式显示。
 
-输出你的提交历史、各个分支的指向以及项目的分支分叉情况
+* 输出你的提交历史、各个分支的指向以及项目的分支分叉情况
 
     $ git log --oneline --decorate --graph --all
     * c2b9e (HEAD, master) made other changes
@@ -71,8 +74,10 @@ To checkout the branch when creating it, use
     * 34ac2 fixed bug #1328 - stack overflow under certain conditions
     * 98ca9 initial commit of my project
 
-`git log --pretty[=<format>]` 指定显示格式。其中，format 可以是预设的值，也可以是自定义值。 
+* 加上 pretty 参数显示     
+格式： `git log --pretty[=<format>]` 。其中，format 可以是预设的值，也可以是自定义值。 
 
+预设的值包括 `oneline`, `short`, `medium`, `full`, `fuller` 等等。       
 例如：
 
     $ git log --pretty=fuller
@@ -85,19 +90,20 @@ To checkout the branch when creating it, use
     <title line>
     <full commit message>
 
-自定义值示例：
+自定义的格式为： `format:<string>`         
+例如：
 
     $ git log --pretty=format:"%h [[%s]] %cd"
     6bc023d [[modify material tech check]] Wed Jan 16 20:58:57 2019 +0800
 
-详细说明见官方文档。
 
-* 配置 git lg 可以看到彩色的日志
-    
-    git config --global alias.lg "log --color --graph 
+* 配置 git lg 可以看到彩色的日志     
+```
+    $ git config --global alias.lg "log --color --graph 
     --pretty=format:'%Cred%h%Creset 
     -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
- 
+```
+
 ### <a id="branch_track">跟踪分支</a>       
 从一个远程跟踪分支检出一个本地分支会自动创建一个叫做 “跟踪分支”（有时候也叫做 “上游分支”）。
 
@@ -156,4 +162,19 @@ git push origin master 命令在没有track远程分支的本地分支中默认�
     git push origin :branch-name
 
 冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
+
+
+***
+
+<strong>Question</strong>: How is a tag different from a branch in Git? 
+```
+A tag represents a version of a particular branch at a moment in time. A branch represents a separate thread of development that may run concurrently with other development efforts on the same code base. Changes to a branch may eventually be merged back into another branch to unify them.
+
+Usually you'll tag a particular version so that you can recreate it, e.g., this is the version we shipped to XYZ Corp. A branch is more of a strategy to provide on-going updates on a particular version of the code while continuing to do development on it. You'll make a branch of the delivered version, continue development on the main line, but make bug fixes to the branch that represents the delivered version. Eventually, you'll merge these bug fixes back into the main line. Often you'll use both branching and tagging together. You'll have various tags that may apply both to the main line and its branches marking particular versions (those delivered to customers, for instance) along each branch that you may want to recreate -- for delivery, bug diagnosis, etc.
+
+It's actually more complicated than this -- or as complicated as you want to make it -- but these examples should give you an idea of the differences.
+```
+See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
+
+
 
