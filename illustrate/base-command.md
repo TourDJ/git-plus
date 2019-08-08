@@ -27,11 +27,11 @@ Git 克隆的是该 Git 仓库服务器上的几乎所有数据，而不是仅�
   
 例如：
 
-    $ git clone https://github.com/libgit2/libgit2  
+    $ git clone https://github.com/libgit2/libgit2  
     
-克隆远程仓库的时候，自定义本地仓库的名字  
+克隆远程仓库的时候，自定义本地仓库的名字
 
-    $ git clone https://github.com/libgit2/libgit2 mylibgit
+    $ git clone https://github.com/libgit2/libgit2 mylibgit
 
 depth 用于指定克隆深度，为1即表示只克隆最近一次commit。 
 
