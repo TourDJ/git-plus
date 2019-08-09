@@ -16,7 +16,7 @@ Git 保存的不是文件的变化或者差异，而是一系列不同时刻的�
 Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 它会在每次的提交操作中自动向前移动。Git 的 “master” 分支并不是一个特殊分支。 它就跟其它分支完全没有区别。 之所以几乎每一个仓库都有 master 分支，是因为 git init 命令默认创建它，并且大多数人都懒得去改动它。
 
 ![Git theory](../images/branch-and-history.png)    
-Git 分支及其提交历史
+图：Git 分支及其提交历史
 
 ### <a id="branch_add">分支创建</a>
 创建分支命令
@@ -162,14 +162,14 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 
 ***
 
-<strong>Question</strong>: How is a tag different from a branch in Git? 
-<code>
+<strong>Question</strong>: How is a tag different from a branch in Git?       
+
 A tag represents a version of a particular branch at a moment in time. A branch represents a separate thread of development that may run concurrently with other development efforts on the same code base. Changes to a branch may eventually be merged back into another branch to unify them.
 
 Usually you'll tag a particular version so that you can recreate it, e.g., this is the version we shipped to XYZ Corp. A branch is more of a strategy to provide on-going updates on a particular version of the code while continuing to do development on it. You'll make a branch of the delivered version, continue development on the main line, but make bug fixes to the branch that represents the delivered version. Eventually, you'll merge these bug fixes back into the main line. Often you'll use both branching and tagging together. You'll have various tags that may apply both to the main line and its branches marking particular versions (those delivered to customers, for instance) along each branch that you may want to recreate -- for delivery, bug diagnosis, etc.
 
 It's actually more complicated than this -- or as complicated as you want to make it -- but these examples should give you an idea of the differences.
-</code>
+
 
 See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
 
