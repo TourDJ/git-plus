@@ -59,7 +59,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     git branch -d testing
         
 ### <a id="branch_log">分支查看</a>
-+ `git branch` 不加任何参数，查看分支类表
+++ `git branch` 不加任何参数，查看分支类表
 
     $ git branch
       iss53
@@ -85,7 +85,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     $ git branch --no-merged
       testing
   
-+ 查看分支也可以使用 `git log` 命令，该命令有许多选项， 详细使用方法见官方文档。
+++ 查看分支也可以使用 `git log` 命令，该命令有许多选项， 详细使用方法见官方文档。
 
 * 你可以简单地使用 git log 命令查看各个分支当前所指的对象。提供这一功能的参数是 --decorate。
 
