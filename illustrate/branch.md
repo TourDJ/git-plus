@@ -88,12 +88,13 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 ◎ 查看分支也可以使用 `git log` 命令，该命令有许多选项， 详细使用方法见官方文档。
 
 * 你可以简单地使用 git log 命令查看各个分支当前所指的对象。提供这一功能的参数是 --decorate。
-
+```
     git log --oneline --decorate
+```    
 该命令是单行及sha1缩写的方式显示。
 
 * 输出你的提交历史、各个分支的指向以及项目的分支分叉情况
-
+```
     $ git log --oneline --decorate --graph --all
     * c2b9e (HEAD, master) made other changes
     | * 87ab2 (testing) made a change
@@ -101,7 +102,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     * f30ab add feature #32 - ability to add new formats to the
     * 34ac2 fixed bug #1328 - stack overflow under certain conditions
     * 98ca9 initial commit of my project
-
+```
 * 加上 pretty 参数显示     
 格式： `git log --pretty[=<format>]` 。其中，format 可以是预设的值，也可以是自定义值。 
 
@@ -157,9 +158,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 3. serverfix 分支正在跟踪 teamone 服务器上的 server-fix-good 分支并且领先 3 落后 1，意味着服务器上有一次提交还没有合并入同时本地有三次提交还没有推送。 
 4. testing 分支并没有跟踪任何远程分支。
 
-> 需要重点注意的一点是这些数字的值来自于你从每个服务器上最后一次抓取的数据。 这个命令并没有连接服务器，它只会告诉你关于本地缓存的服务器数据。 如果想要统计最新的领先与落后数字，需要在运行此命令前抓取所有的远程仓库。 可以像这样做：
-
-    $ git fetch --all; git branch -vv    
+> 需要重点注意的一点是这些数字的值来自于你从每个服务器上最后一次抓取的数据。 这个命令并没有连接服务器，它只会告诉你关于本地缓存的服务器数据。 如果想要统计最新的领先与落后数字，需要在运行此命令前抓取所有的远程仓库。 可以像这样做：```$ git fetch --all; git branch -vv```    
 
 
 ### <a id="branch_remoteadd">创建远程分支</a>
