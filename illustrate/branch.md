@@ -37,17 +37,17 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 
 * 根据历史提交创建分支。    
 
-根据 hash 创建:
+  根据 hash 创建:
 
-    git branch branchname <sha1-of-commit>
+      git branch branchname <sha1-of-commit>
 
-根据引用创建:
+  根据引用创建:
 
-    git branch branchname HEAD~3
+      git branch branchname HEAD~3
 
-根据 hash 或引用创建后同时切换:
+  根据 hash 或引用创建后同时切换:
 
-    git checkout -b branchname <sha1-of-commit or HEAD~3>
+      git checkout -b branchname <sha1-of-commit or HEAD~3>
 
 ### <a id="branch_checkout">分支切换</a>
 分支切换会改变你工作目录中的文件。在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。
