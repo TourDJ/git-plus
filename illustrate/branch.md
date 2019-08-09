@@ -240,8 +240,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     git log --left-right dev...master
 ```
 
-***
-
+*** 
 <strong>Question</strong>
 
 `How is a tag different from a branch in Git? `      
@@ -253,6 +252,11 @@ Usually you'll tag a particular version so that you can recreate it, e.g., this 
 It's actually more complicated than this -- or as complicated as you want to make it -- but these examples should give you an idea of the differences.
 
 See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
+
+***
+## 参考资料    
+[git 分支开发工作流](https://git-scm.com/book/zh/v2/Git-分支-分支开发工作流)      
+[远程分支](https://git-scm.com/book/zh/v2/Git-分支-远程分支)     
 
 
 
