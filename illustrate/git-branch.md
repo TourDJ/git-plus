@@ -205,7 +205,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     git log branch2..branch1
 ```
 
-* 查看所有不用
+* 查看所有不同
 ```
     git log branch1...branch2
 ```
@@ -216,7 +216,9 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 
 ***
 
-<strong>Question</strong>: How is a tag different from a branch in Git?       
+<strong>Question</strong>
+
+1.How is a tag different from a branch in Git?       
 
 A tag represents a version of a particular branch at a moment in time. A branch represents a separate thread of development that may run concurrently with other development efforts on the same code base. Changes to a branch may eventually be merged back into another branch to unify them.
 
