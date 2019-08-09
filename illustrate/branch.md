@@ -59,7 +59,33 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     git branch -d testing
         
 ### <a id="branch_log">分支查看</a>
-查看分支的命令使用 `git log`，该命令有许多选项， 详细使用方法见官方文档。
++ `git branch` 不加任何参数，查看分支类表
+
+    $ git branch
+      iss53
+    * master
+      testing
+注意 master 分支前的 * 字符：它代表现在检出的那一个分支（也就是说，当前 HEAD 指针所指向的分支）。 这意味着如果在这时候提交，master 分支将会随着新的工作向前移动。
+
+如果需要查看每一个分支的最后一次提交，可以运行 `git branch -v` 命令：
+
+    $ git branch -v
+      iss53   93b412c fix javascript issue
+    * master  7a98805 Merge branch 'iss53'
+      testing 782fd34 add scott to the author list in the readmes
+
+`--merged` 与 `--no-merged` 这两个有用的选项可以过滤这个列表中已经合并或尚未合并到当前分支的分支。 如果要查看哪些分支已经合并到当前分支，可以运行 ：
+
+    $ git branch --merged
+      iss53
+    * master
+
+查看所有包含未合并工作的分支，可以运行 git branch --no-merged：
+
+    $ git branch --no-merged
+      testing
+  
++ 查看分支也可以使用 `git log` 命令，该命令有许多选项， 详细使用方法见官方文档。
 
 * 你可以简单地使用 git log 命令查看各个分支当前所指的对象。提供这一功能的参数是 --decorate。
 
