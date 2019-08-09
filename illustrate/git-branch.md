@@ -1,10 +1,10 @@
 
 - [分支](#branch)     
   - [分支创建](#branch_add)     
-  - [切换分支](#branch_checkout)    
-  - [删除分支](#branch_delete)       
-  - [查看分支](#branch_log)     
-  - [跟踪分支](#branch_track)     
+  - [分支切换](#branch_checkout)    
+  - [分支删除](#branch_delete)       
+  - [分支查看](#branch_log)     
+  - [分支跟踪](#branch_track)     
   - [创建远程分支](#branch_remoteadd)     
   - [删除远程分支](#branch_remotedelete)     
 
@@ -36,30 +36,31 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 
 * 根据历史提交创建分支。    
 
-You can create the branch via a hash:
+根据 hash 创建:
 
     git branch branchname <sha1-of-commit>
-Or by using a symbolic reference:
+
+根据引用创建:
 
     git branch branchname HEAD~3
-To checkout the branch when creating it, use
+
+根据 hash 或引用创建后同时切换:
 
     git checkout -b branchname <sha1-of-commit or HEAD~3>
 
-### <a id="branch_checkout">切换分支</a>
+### <a id="branch_checkout">分支切换</a>
 分支切换会改变你工作目录中的文件。在切换分支时，一定要注意你工作目录里的文件会被改变。 如果是切换到一个较旧的分支，你的工作目录会恢复到该分支最后一次提交时的样子。 如果 Git 不能干净利落地完成这个任务，它将禁止切换分支。
 
-        git checkout testing
+    git checkout testing
 
-### <a id="branch_delete>删除分支</a>
+### <a id="branch_delete">分支删除</a>
 
-        git branch -d testing
+    git branch -d testing
         
-### <a id="branch_log">查看分支</a>
+### <a id="branch_log">分支查看</a>
 查看分支的命令使用 `git log`，该命令有许多选项， 详细使用方法见官方文档。
 
-* 你可以简单地使用 git log 命令查看各个分支当前所指的对象。     
-提供这一功能的参数是 --decorate。
+* 你可以简单地使用 git log 命令查看各个分支当前所指的对象。提供这一功能的参数是 --decorate。
 
     git log --oneline --decorate
 该命令是单行及sha1缩写的方式显示。
@@ -77,8 +78,7 @@ To checkout the branch when creating it, use
 * 加上 pretty 参数显示     
 格式： `git log --pretty[=<format>]` 。其中，format 可以是预设的值，也可以是自定义值。 
 
-预设的值包括 `oneline`, `short`, `medium`, `full`, `fuller` 等等。       
-例如：
+1.预设的值包括 `oneline`, `short`, `medium`, `full`, `fuller` 等等。例如：
 
     $ git log --pretty=fuller
     显示格式：
@@ -90,8 +90,7 @@ To checkout the branch when creating it, use
     <title line>
     <full commit message>
 
-自定义的格式为： `format:<string>`         
-例如：
+2.自定义的格式为： `format:<string>`。例如：
 
     $ git log --pretty=format:"%h [[%s]] %cd"
     6bc023d [[modify material tech check]] Wed Jan 16 20:58:57 2019 +0800
@@ -105,27 +104,26 @@ To checkout the branch when creating it, use
 ```
 
 ### <a id="branch_track">跟踪分支</a>       
-从一个远程跟踪分支检出一个本地分支会自动创建一个叫做 “跟踪分支”（有时候也叫做 “上游分支”）。
-
-Git 提供了 --track 快捷方式：
-
+* 从一个远程跟踪分支检出一个本地分支会自动创建一个叫做 “跟踪分支”（有时候也叫做 “上游分支”）。Git 提供了 --track 快捷方式：
+```
     git checkout --track origin/serverfix
-
-如果想要将本地分支与远程分支设置为不同名字，你可以轻松地增加一个不同名字的本地分支的上一个命令：
-
+```
+* 如果想要将本地分支与远程分支设置为不同名字，你可以轻松地增加一个不同名字的本地分支的上一个命令：
+```
     git checkout -b sf origin/serverfix
-
-设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改正在跟踪的上游分支
-
+```
+* 设置已有的本地分支跟踪一个刚刚拉取下来的远程分支，或者想要修改正在跟踪的上游分支
+```
     git branch -u origin/serverfix
- 
-查看设置的所有跟踪分支
-
+```
+* 查看设置的所有跟踪分支
+```
     $ git branch -vv
       iss53     7e424c3 [origin/iss53: ahead 2] forgot the brackets
       master    1ae2a45 [origin/master] deploying index fix
     * serverfix f8674d9 [teamone/server-fix-good: ahead 3, behind 1] this should do it
       testing   5ea463a trying something new
+```      
 这里可以看到：      
 1. iss53 分支正在跟踪 origin/iss53 并且 “ahead” 是 2，意味着本地有两个提交还没有推送到服务器上。 
 2. master 分支正在跟踪 origin/master 分支并且是最新的。 
@@ -138,7 +136,7 @@ Git 提供了 --track 快捷方式：
 
 
 ### <a id="branch_remoteadd">创建远程分支</a>
-git push origin master 命令在没有track远程分支的本地分支中默认提交的master分支，因为master分支默认指向了origin master 分支。
+`git push origin master` 命令在没有track远程分支的本地分支中默认提交的master分支，因为master分支默认指向了origin master 分支。
 
 如果想把本地的某个分支提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，那么可以这么做。
 
@@ -157,8 +155,6 @@ git push origin master 命令在没有track远程分支的本地分支中默认�
     $ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的
 > 有待验证?
 
-
-
     git push origin :branch-name
 
 冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
@@ -167,13 +163,14 @@ git push origin master 命令在没有track远程分支的本地分支中默认�
 ***
 
 <strong>Question</strong>: How is a tag different from a branch in Git? 
-```
+<pre>
 A tag represents a version of a particular branch at a moment in time. A branch represents a separate thread of development that may run concurrently with other development efforts on the same code base. Changes to a branch may eventually be merged back into another branch to unify them.
 
 Usually you'll tag a particular version so that you can recreate it, e.g., this is the version we shipped to XYZ Corp. A branch is more of a strategy to provide on-going updates on a particular version of the code while continuing to do development on it. You'll make a branch of the delivered version, continue development on the main line, but make bug fixes to the branch that represents the delivered version. Eventually, you'll merge these bug fixes back into the main line. Often you'll use both branching and tagging together. You'll have various tags that may apply both to the main line and its branches marking particular versions (those delivered to customers, for instance) along each branch that you may want to recreate -- for delivery, bug diagnosis, etc.
 
 It's actually more complicated than this -- or as complicated as you want to make it -- but these examples should give you an idea of the differences.
-```
+</pre>
+
 See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
 
 
