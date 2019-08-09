@@ -164,7 +164,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 ### <a id="branch_diff">分支比较</a>
 分支比较可以使用 `git diff` 命令，也可以使用 `git log` 命令，这两条命令的侧重点不同。
 
-" 使用 `git diff`     
+###### 使用 `git diff` 比较文件的差异
 
 * 显示出所有有差异的文件的详细差异
 ```
@@ -185,7 +185,34 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     git diff branch1 branch2 文件名(带路径)
 ```
 
+###### 使用 `git log` 比较提交的差异
 
+* 查看 branch1 有，而 branch2 中没有的：
+```
+    git log branch1 ^branch2 
+```
+反之：
+```
+    git log branch2 ^branch1
+```
+
+* 查看 branch2 中比 branch1 中多提交了哪些内容：
+```
+    git log branch1..branch2
+```
+反之：
+```
+    git log branch2..branch1
+```
+
+* 查看所有不用
+```
+    git log branch1...branch2
+```
+加上 `–left-right` 后，左箭头 < 表示是 branch1 的，右箭头 > 表示是 branch2 的。
+```
+    git log --left-right dev...master
+```
 
 ***
 
