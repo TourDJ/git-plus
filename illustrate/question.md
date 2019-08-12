@@ -17,7 +17,9 @@ tags reside in refs/tags/ namespace, and can point to tag objects (annotated and
 branches reside in refs/heads/ namespace, and can point only to commit objects. The HEAD pointer must refer to a branch (symbolic reference) or directly to a commit (detached HEAD or unnamed branch).
 remote-tracking branches reside in refs/remotes/<remote>/ namespace, and follow ordinary branches in remote repository <remote>.
 
-See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
+More detail see [How is a tag different from a branch in Git?](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)  
+
+
 
 § `fatal: refusing to merge unrelated histories`
 
