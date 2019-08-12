@@ -189,28 +189,27 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 ### <a id="branch_diff">分支比较</a>
 分支比较可以使用 `git diff` 命令，也可以使用 `git log` 命令，这两条命令的侧重点不同。
 
-###### 使用 `git diff` 比较文件的差异
+##### 使用 `git diff` 比较文件的差异
 
-* 显示出所有有差异的文件的详细差异
-```
+###### 显示出所有有差异的文件的详细差异
+
     git diff branch1 branch2
-```
+
 如果差异比较多，看起来不是很方便，可以将差异输出到文件中：
-```
+
     git diff [branchA] [branchB] >>d:/file.diff
-```
 
-* 显示出所有有差异的文件列表
-```
+###### 显示指定文件的详细差异
+
+    git diff branch1 branch2 文件名(带路径) 
+
+###### 显示出所有有差异的文件列表
+
     git diff branch1 branch2 --stat
-```
 
-* 显示指定文件的详细差异
-```
-    git diff branch1 branch2 文件名(带路径)
-```
+> ※ 查看同一分支的不同提交的差异也类似。
 
-###### 使用 `git log` 比较提交的差异
+##### 使用 `git log` 比较提交的差异
 
 * 查看 branch1 有，而 branch2 中没有的：
 ```
