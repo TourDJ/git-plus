@@ -13,8 +13,13 @@
 ## <a id="reset">git reset 使用</a>
 命令格式：
 
-    git reset [ –soft | –mixed | –hard] <commit>
-git reset <commit> 的意思就是 把HEAD移到<commit>
+    git reset [ –-soft | –-mixed | –-hard] <commit>
+git reset <commit> 的意思就是 把HEAD移到 `<commit>`。
+  
+其中：      
+* --soft：   修改版本库，保留暂存区，保留工作区。
+* --mixed：  修改版本库，修改暂存区，保留工作区。（默认参数）
+* --hard：   修改版本库，修改暂存区，修改工作区。
 
 
 
