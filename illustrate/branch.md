@@ -228,26 +228,6 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
 
 
-*** 
-<strong>Question</strong>
-
-§ `How is a tag different from a branch in Git? `      
-
-* From the ***theoretical*** point of view:
-
-tags are symbolic names for a given revision. They always point to the same object (usually: to the same revision); they do not change.
-
-branches are symbolic names for line of development. New commits are created on top of branch. The branch pointer naturally advances, pointing to newer and newer commits.
-
-* From the ***technical*** point of view:
-
-tags reside in refs/tags/ namespace, and can point to tag objects (annotated and optionally GPG signed tags) or directly to commit object (less used lightweight tag for local names), or in very rare cases even to tree object or blob object (e.g. GPG signature).
-
-branches reside in refs/heads/ namespace, and can point only to commit objects. The HEAD pointer must refer to a branch (symbolic reference) or directly to a commit (detached HEAD or unnamed branch).
-remote-tracking branches reside in refs/remotes/<remote>/ namespace, and follow ordinary branches in remote repository <remote>.
-
-See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
-
 ***
 
 ## 参考资料    
