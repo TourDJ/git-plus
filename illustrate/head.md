@@ -21,5 +21,7 @@ git reset <commit> 的意思就是 把HEAD移到 `<commit>`。
 * --mixed：  修改版本库，修改暂存区，保留工作区。（默认参数）
 * --hard：   修改版本库，修改暂存区，修改工作区。
 
+## 参考资料
+* [git reset详解](https://segmentfault.com/a/1190000009658888)    
 
 
