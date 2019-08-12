@@ -23,5 +23,6 @@ git reset <commit> 的意思就是 把HEAD移到 `<commit>`。
 
 ## 参考资料
 * [git reset详解](https://segmentfault.com/a/1190000009658888)    
+* [git reset --hard --soft 与 git revert 的作用](https://www.jianshu.com/p/952d83fc5bc8)    
 
 
