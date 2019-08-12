@@ -16,6 +16,9 @@
     git reset [ –-soft | –-mixed | –-hard] <commit>
 git reset <commit> 的意思就是 把HEAD移到 `<commit>`。
   
+![git 文件流向示意图](../images/git-workspace-state-history.png)    
+图: git 文件流向示意图
+  
 其中：      
 * --soft：   修改版本库，保留暂存区，保留工作区。
 * --mixed：  修改版本库，修改暂存区，保留工作区。（默认参数）
