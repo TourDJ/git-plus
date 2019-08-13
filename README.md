@@ -63,11 +63,12 @@ Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地�
     - [ ] [git 基本命令](./illustrate/index.md)
     - [ ] [git 进阶命令](./illustrate/advance-command.md)
     - [x] [git 分支](./illustrate/branch.md)
-    - [x] 改进 LaTex 功能
-        - [x] 修复 LaTex 公式渲染问题
-        - [x] 新增 LaTex 公式编号功能 [语法参考](http://docs.mathjax.org/en/latest/tex.html#tex-eq-numbers)
-- [ ] **使用场景**
-    - [ ] [git 更新 fork 的 repository](./illustrate/fork-update.md)
-    - [ ] [将本地项目与远程仓库关联](./illustrate/add-remote.md)
-    - [x] 购买蓝宝石公主号七月一日的船票
+    - [x] 使用场景
+        - [x] [git 更新 fork 的 repository](./illustrate/fork-update.md)
+        - [x] [将本地项目与远程仓库关联](./illustrate/add-remote.md)
+        - [x] [HEAD 的含义](./illustrate/head.md)
+        - [] [git merge --squash 和 rebase 区别](./illustrate/squash-rebase.md)
+- [ ] **注意事项**
+    - [ ] [忽略文件](./illustrate/ignore.md)
+    - [x] [常见问题](./illustrate/question.md) 
 
