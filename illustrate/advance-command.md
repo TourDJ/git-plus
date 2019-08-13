@@ -8,8 +8,7 @@
 - [从远程仓库中拉取](#git_fetch)     
 - [从远程仓库中抓取与合并](#git_pull)     
 - [推送到远程仓库](#git_push)     
-- [储藏你的工作](#git_stash)     
-- [显示整个本地仓储的提交](#git_reflog)      
+- [储藏你的工作](#git_stash)         
 - [逐行显示该文件的修改记录](#git_blame)         
 - [远程仓库回滚](#git_rollback)            
 - [标签](#git_tag)      
@@ -134,29 +133,6 @@ git stash 储藏你的工作
     nothing to commit, working directory clean
     git pull
     git stash pop
-***
-
-### <a id="git_reflog">显示整个本地仓储的提交<a/>
-git reflog 显示整个本地仓储的提交
-显示整个本地仓储的commit, 包括所有branch的commit, 甚至包括已经撤销的commit, 只要HEAD发生了变化, 就会在reflog里面看得到. git log只包括当前分支的commit。
-例如：
-
-    $ git reflog
-    b7057a9 HEAD@{0}: reset: moving to b7057a9
-    98abc5a HEAD@{1}: commit: more stuff added to foo
-    b7057a9 HEAD@{2}: commit (initial): initial commit
-
-所以，我们要找回我们第二commit，只需要做如下操作：
-    
-    $ git reset --hard 98abc5a
-
-再来看一下 git 记录：
-
-    $ git log
-    * 98abc5a (HEAD, master) more stuff added to foo
-    * b7057a9 initial commit
-
-所以，如果你因为reset等操作丢失一个提交的时候，你总是可以把它找回来。除非你的操作已经被git当做垃圾处理掉了，一般是30天以后。
 ***
 
 ### <a id="git_blame">逐行显示该文件的修改记录<a/> 
