@@ -232,7 +232,7 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 ### <a id="branch_rename">修改分支名称</a>
 官方使用帮助中说明：         
 <em><code>
-With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If <oldbranch> had a corresponding reflog, it is renamed to match <newbranch>, and a reflog entry is created to remember the branch renaming. If <newbranch> exists, -M must be used to force the rename to happen.
+With a -m or -M option, \<oldbranch\> will be renamed to \<newbranch\>. If \<oldbranch\> had a corresponding reflog, it is renamed to match \<newbranch\>, and a reflog entry is created to remember the branch renaming. If \<newbranch\> exists, -M must be used to force the rename to happen.
 </code></em>
 
 本地分支重命名
