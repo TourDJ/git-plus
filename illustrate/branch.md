@@ -230,10 +230,11 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
 
 ### <a id="branch_rename">修改分支名称</a>
-官方使用帮助中说明：
-<code>
+官方使用帮助中说明：         
+<cite>
 With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If <oldbranch> had a corresponding reflog, it is renamed to match <newbranch>, and a reflog entry is created to remember the branch renaming. If <newbranch> exists, -M must be used to force the rename to happen.
-</code>
+</cite>
+
 本地分支重命名
 
     git branch -m oldName newName
