@@ -8,6 +8,8 @@
   - [分支跟踪](#branch_track)     
   - [创建远程分支](#branch_remoteadd)     
   - [删除远程分支](#branch_remotedelete)        
+  - [修改分支名称](#branch_rename)     
+  
 
 ## <a id="branch">分支<a/>
 
@@ -227,6 +229,21 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 
 冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
 
+### <a id="branch_rename">修改分支名称</a>
+官方使用帮助中说明：
+<pre>
+With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If <oldbranch> had a corresponding reflog, it is renamed to match <newbranch>, and a reflog entry is created to remember the branch renaming. If <newbranch> exists, -M must be used to force the rename to happen.
+</pre>
+本地分支重命名
+
+    git branch -m oldName newName
+
+远程分支重命名
+
+    git branch -m oldName newName   重命名远程分支对应的本地分支
+    git push --delete origin oldName    删除远程分支
+    git push origin newName 上传新命名的本地分支
+    git branch --set-upstream-to origin/newName 把修改后的本地分支与远程分支关联
 
 ***
 
