@@ -9,6 +9,7 @@
   - [创建远程分支](#branch_remoteadd)     
   - [删除远程分支](#branch_remotedelete)        
   - [修改分支名称](#branch_rename)     
+  - [分支合并](#branch_merge)      
   
 
 ## <a id="branch">分支<a/>
@@ -245,6 +246,17 @@ With a -m or -M option, \<oldbranch\> will be renamed to \<newbranch\>. If \<old
     git push --delete origin oldName    删除远程分支
     git push origin newName 上传新命名的本地分支
     git branch --set-upstream-to origin/newName 把修改后的本地分支与远程分支关联
+
+### <a id="branch_merge">分支合并</a>
+将其他分支上修改的代码合并到主分支上
+
+    $ git checkout master
+    $ git merge hotfix
+    Updating f42c576..3a0874c
+    Fast-forward
+     index.html | 2 ++
+     1 file changed, 2 insertions(+)
+
 
 ***
 
