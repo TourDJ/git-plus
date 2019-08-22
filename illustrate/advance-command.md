@@ -1,20 +1,18 @@
 
-- [查看远程仓库](./base-command.md#git_remote)      
-  - [添加远程仓库](./base-command.md#git_remoteadd)      
-  - [查看远程仓库详细信息](./base-command.md#git_remoteshow)       
-  - [远程仓库的重命名](./base-command.md#git_remoterename)      
-  - [远程仓库的移除](./base-command.md#git_remoterm)     
-  - [更新获取地址方式](./base-command.md#git_remoteseturl)    
-- [从远程仓库中拉取](./base-command.md#git_fetch)     
-- [从远程仓库中抓取与合并](./base-command.md#git_pull)     
-- [推送到远程仓库](./base-command.md#git_push)     
-- [储藏你的工作](./base-command.md#git_stash)     
-- [显示整个本地仓储的提交](./base-command.md#git_reflog)      
-- [逐行显示该文件的修改记录](./base-command.md#git_blame)         
-- [远程仓库回滚](./base-command.md#git_rollback)            
-- [标签](./base-command.md#git_tag)      
-- [比较文件的差异](./base-command.md#git_diff)  
-- [存储用户名与密码](./base-command.md#git_username) 
+- [查看远程仓库](#git_remote)      
+  - [添加远程仓库](#git_remoteadd)      
+  - [查看远程仓库详细信息](#git_remoteshow)       
+  - [远程仓库的重命名](#git_remoterename)      
+  - [远程仓库的移除](#git_remoterm)     
+  - [更新获取地址方式](#git_remoteseturl)    
+- [从远程仓库中拉取](#git_fetch)     
+- [从远程仓库中抓取与合并](#git_pull)     
+- [推送到远程仓库](#git_push)     
+- [储藏你的工作](#git_stash)         
+- [逐行显示该文件的修改记录](#git_blame)         
+- [远程仓库回滚](#git_rollback)                
+- [比较文件的差异](#git_diff)  
+- [存储用户名与密码](#git_username) 
 
 
 ### <a id="git_remote">查看远程仓库<a/>
@@ -136,29 +134,6 @@ git stash 储藏你的工作
     git stash pop
 ***
 
-### <a id="git_reflog">显示整个本地仓储的提交<a/>
-git reflog 显示整个本地仓储的提交
-显示整个本地仓储的commit, 包括所有branch的commit, 甚至包括已经撤销的commit, 只要HEAD发生了变化, 就会在reflog里面看得到. git log只包括当前分支的commit。
-例如：
-
-    $ git reflog
-    b7057a9 HEAD@{0}: reset: moving to b7057a9
-    98abc5a HEAD@{1}: commit: more stuff added to foo
-    b7057a9 HEAD@{2}: commit (initial): initial commit
-
-所以，我们要找回我们第二commit，只需要做如下操作：
-    
-    $ git reset --hard 98abc5a
-
-再来看一下 git 记录：
-
-    $ git log
-    * 98abc5a (HEAD, master) more stuff added to foo
-    * b7057a9 initial commit
-
-所以，如果你因为reset等操作丢失一个提交的时候，你总是可以把它找回来。除非你的操作已经被git当做垃圾处理掉了，一般是30天以后。
-***
-
 ### <a id="git_blame">逐行显示该文件的修改记录<a/> 
 git blame 逐行显示该文件的修改记录
 命令模式会显示所有行的信息。我们可以利用"<开始>，<结束>"表示，<开始>和<结束>参数可以是数字。
@@ -243,54 +218,6 @@ pick 925e14a 4 commit
 如果你在之前的编辑框修改了n行，也就是说要对n次提交做修改，则需要重复执行以上步骤n次。
 
 > 需要注意的是，在执行rebase命令对指定提交修改或删除之后，该次提交之后的所有提交的"commit id"都会改变。
-
-***
-
-### <a id="git_tag">标签</a>
-
-#### 创建标签   
-Git 使用两种主要类型的标签：轻量标签（lightweight）与附注标签（annotated）。     
-
-* 附注标签     
-在 Git 中创建一个附注标签是很简单的。 最简单的方式是当你在运行 tag 命令时指定 -a 选项：
-
-      $ git tag -a v1.4 -m 'my version 1.4'
-      $ git tag
-      v0.1
-      v1.3
-      v1.4
-
-* 轻量标签    
-另一种给提交打标签的方式是使用轻量标签。 轻量标签本质上是将提交校验和存储到一个文件中 - 没有保存任何其他信息。 创建轻量标签，不需要使用 -a、-s 或 -m 选项，只需要提供标签名字：
-
-      $ git tag v1.4-lw
-      $ git tag
-      v0.1
-      v1.3
-      v1.4
-      v1.4-lw
-      v1.5
-
-这时，如果在标签上运行 git show，你不会看到额外的标签信息。
-
-      $ git show v1.4-lw
-      commit ca82a6dff817ec66f44342007202690a93763949
-      Author: Scott Chacon <schacon@gee-mail.com>
-      Date:   Mon Mar 17 21:52:11 2008 -0700
-
-      changed the version number
-#### 删除标签    
-删除本地标签
-
-    git tag -d v1.0.3
-删除远程标签
-
-    git push origin –delete v1.0.3
-
-
-#### 查看本地 tag
-
-    git tag
 
 ***
 

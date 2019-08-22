@@ -4,11 +4,13 @@
   - [分支切换](#branch_checkout)    
   - [分支删除](#branch_delete)       
   - [分支查看](#branch_log)     
+  - [分支比较](#branch_diff)     
   - [分支跟踪](#branch_track)     
   - [创建远程分支](#branch_remoteadd)     
   - [删除远程分支](#branch_remotedelete)        
-  - [分支比较](#branch_diff)     
-
+  - [修改分支名称](#branch_rename)     
+  - [分支合并](#branch_merge)      
+  
 
 ## <a id="branch">分支<a/>
 
@@ -131,6 +133,49 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
     -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
 
+### <a id="branch_diff">分支比较</a>
+分支比较可以使用 `git diff` 命令，也可以使用 `git log` 命令，这两条命令的侧重点不同。
+
+##### 使用 `git diff` 比较文件的差异
+
+###### 显示出所有有差异的文件的详细差异
+
+    git diff branch1 branch2
+
+如果差异比较多，看起来不是很方便，可以将差异输出到文件中：
+
+    git diff [branchA] [branchB] >>d:/file.diff
+
+###### 显示指定文件的详细差异
+
+    git diff branch1 branch2 文件名(带路径) 
+
+###### 显示出所有有差异的文件列表
+
+    git diff branch1 branch2 --stat
+
+> ※ 查看同一分支的不同提交的差异也类似。
+
+##### 使用 `git log` 比较提交的差异
+
+###### 查看一个分支有，另一个分支没有
+
+    git log branch1 ^branch2  查看 branch1 有，而 branch2 中没有
+    git log branch2 ^branch1  查看 branch2 有，而 branch1 中没有
+
+###### 查看一个分支比另一个分支多了哪些内容
+
+    git log branch1..branch2  查看 branch2 中比 branch1 中多提交了哪些内容
+    git log branch2..branch1  查看 branch1 中比 branch2 中多提交了哪些内容
+
+###### 查看所有不同
+
+    git log branch1...branch2
+加上 `–left-right` 后，左箭头 < 表示是 branch1 的，右箭头 > 表示是 branch2 的。
+
+    git log --left-right dev...master
+
+
 ### <a id="branch_track">跟踪分支</a>       
 * 从一个远程跟踪分支检出一个本地分支会自动创建一个叫做 “跟踪分支”（有时候也叫做 “上游分支”）。Git 提供了 --track 快捷方式：
 ```
@@ -185,79 +230,33 @@ git branch 命令仅仅创建一个新分支，并不会自动切换到新分支
 
 冒号前面的空格不能少，原理是把一个空分支push到server上，相当于删除该分支。
 
+### <a id="branch_rename">修改分支名称</a>
+官方使用帮助中说明：         
+<em><code>
+With a -m or -M option, \<oldbranch\> will be renamed to \<newbranch\>. If \<oldbranch\> had a corresponding reflog, it is renamed to match \<newbranch\>, and a reflog entry is created to remember the branch renaming. If \<newbranch\> exists, -M must be used to force the rename to happen.
+</code></em>
 
-### <a id="branch_diff">分支比较</a>
-分支比较可以使用 `git diff` 命令，也可以使用 `git log` 命令，这两条命令的侧重点不同。
+本地分支重命名
 
-###### 使用 `git diff` 比较文件的差异
+    git branch -m oldName newName
 
-* 显示出所有有差异的文件的详细差异
-```
-    git diff branch1 branch2
-```
-如果差异比较多，看起来不是很方便，可以将差异输出到文件中：
-```
-    git diff [branchA] [branchB] >>d:/file.diff
-```
+远程分支重命名
 
-* 显示出所有有差异的文件列表
-```
-    git diff branch1 branch2 --stat
-```
+    git branch -m oldName newName   重命名远程分支对应的本地分支
+    git push --delete origin oldName    删除远程分支
+    git push origin newName 上传新命名的本地分支
+    git branch --set-upstream-to origin/newName 把修改后的本地分支与远程分支关联
 
-* 显示指定文件的详细差异
-```
-    git diff branch1 branch2 文件名(带路径)
-```
+### <a id="branch_merge">分支合并</a>
+将其他分支上修改的代码合并到主分支上
 
-###### 使用 `git log` 比较提交的差异
+    $ git checkout master
+    $ git merge hotfix
+    Updating f42c576..3a0874c
+    Fast-forward
+     index.html | 2 ++
+     1 file changed, 2 insertions(+)
 
-* 查看 branch1 有，而 branch2 中没有的：
-```
-    git log branch1 ^branch2 
-```
-反之：
-```
-    git log branch2 ^branch1
-```
-
-* 查看 branch2 中比 branch1 中多提交了哪些内容：
-```
-    git log branch1..branch2
-```
-反之：
-```
-    git log branch2..branch1
-```
-
-* 查看所有不同
-```
-    git log branch1...branch2
-```
-加上 `–left-right` 后，左箭头 < 表示是 branch1 的，右箭头 > 表示是 branch2 的。
-```
-    git log --left-right dev...master
-```
-
-*** 
-<strong>Question</strong>
-
-§ `How is a tag different from a branch in Git? `      
-
-* From the ***theoretical*** point of view:
-
-tags are symbolic names for a given revision. They always point to the same object (usually: to the same revision); they do not change.
-
-branches are symbolic names for line of development. New commits are created on top of branch. The branch pointer naturally advances, pointing to newer and newer commits.
-
-* From the ***technical*** point of view:
-
-tags reside in refs/tags/ namespace, and can point to tag objects (annotated and optionally GPG signed tags) or directly to commit object (less used lightweight tag for local names), or in very rare cases even to tree object or blob object (e.g. GPG signature).
-
-branches reside in refs/heads/ namespace, and can point only to commit objects. The HEAD pointer must refer to a branch (symbolic reference) or directly to a commit (detached HEAD or unnamed branch).
-remote-tracking branches reside in refs/remotes/<remote>/ namespace, and follow ordinary branches in remote repository <remote>.
-
-See [detail](https://stackoverflow.com/questions/1457103/how-is-a-tag-different-from-a-branch-in-git-which-should-i-use-here)      
 
 ***
 
