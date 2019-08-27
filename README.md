@@ -5,7 +5,7 @@ Enjoy yourself!
 
 ## Git 是什么?
 关于什么是 Git，摘录一段[官方](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F)说明来介绍一下最好不过了：   
-**『** &nbsp; Gist is a VCS, which is different from others, such as cvs, svn, git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots.       **』**
+**『** &nbsp; &nbsp; Gist is a VCS, which is different from others, such as cvs, svn, git thinks of its data more like a series of snapshots of a miniature filesystem. With Git, every time you commit, or save the state of your project, Git basically takes a picture of what all your files look like at that moment and stores a reference to that snapshot. To be efficient, if files have not changed, Git doesn’t store the file again, just a link to the previous identical file it has already stored. Git thinks about its data more like a stream of snapshots. &nbsp; &nbsp; **』**
 
 大致意思是 Git 的每个版本都是一个完整的系统，也即是包括每次提交是当前包含的所以代码。若你理解了 Git 的思想和基本工作原理，用起来就会知其所以然，游刃有余。
 
