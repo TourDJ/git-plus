@@ -5,12 +5,12 @@
 ### <a id="config_color">颜色配置</a>
 git 命令行的颜色配置
 
-默认的颜色设置
+* 默认的颜色设置
 
     启用 git config --global color.ui true
     关闭 git config --global color.ui false
 
-针对具体的内容进行设置
+* 针对具体的内容进行设置
 
     git config --global color.status auto 
     git config --global color.diff auto 
