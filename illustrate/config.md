@@ -1,6 +1,8 @@
 
+  - [git 命令行的颜色配置](#config_color)      
+  
 
-## git 命令行的颜色配置
+### <a id="config_color">git 命令行的颜色配置</a>
 
 默认的颜色设置
 
