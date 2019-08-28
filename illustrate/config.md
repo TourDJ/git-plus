@@ -1,6 +1,8 @@
 
-  - [颜色配置](#config_color)      
-  
+  - [属性配置](#config)
+    - [颜色配置](#config_color)      
+ 
+## <a id="config">属性配置</a> 
 
 ### <a id="config_color">颜色配置</a>
 git 命令行的颜色配置
