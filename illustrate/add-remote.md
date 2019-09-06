@@ -13,3 +13,13 @@
  
         git push -u origin master
 > Tips: 如果初次提交的代码与服务器有冲突，需要先执行 git pull 同步代码。
+
+### 修改远程仓库地址
+1, 先删除后添加
+
+    git remote remove origin
+    git remote add origin git@github.com:yourname/仓库名.git
+ 
+2, 直接修改
+
+    git remote set-url origin git@github.com:yourname/仓库名.git
