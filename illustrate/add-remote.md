@@ -14,6 +14,9 @@
         git push -u origin master
 > Tips: 如果初次提交的代码与服务器有冲突，需要先执行 git pull 同步代码。
 
+[The “fatal: refusing to merge unrelated histories” Git error](https://www.educative.io/edpresso/the-fatal-refusing-to-merge-unrelated-histories-git-error)     
+
+
 ### 修改远程仓库地址
 1, 先删除后添加
 
