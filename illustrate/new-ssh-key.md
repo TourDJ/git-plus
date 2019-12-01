@@ -1,8 +1,10 @@
+## Generating a new SSH key and adding it to the ssh-agent
 
-## 生成新的 SSH key
+### Generating a new SSH key
 
 1. Open Git Bash
 2. Paste the text below, substituting in your GitHub email address
+
 
     $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 This creates a new ssh key, using the provided email as a label.
