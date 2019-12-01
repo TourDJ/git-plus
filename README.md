@@ -53,6 +53,7 @@ Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地�
     - [ ] [标签](./illustrate/tag.md)      
     - [ ] [属性配置](./illustrate/config.md)     
 - [ ] **使用场景**
+    - [x] [生成新的 SSH key](./illustrate/new-ssh-key.md)      
     - [x] [更新 fork 的仓库](./illustrate/fork-update.md)
     - [x] [将本地项目与远程仓库关联](./illustrate/add-remote.md)
     - [x] [HEAD 的含义及相关使用](./illustrate/head.md)
