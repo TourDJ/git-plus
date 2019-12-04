@@ -14,12 +14,11 @@
 > revert 和 reset 的区别       
 > revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在，而reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录。git revert是用一次新的commit来回滚之前的commit，git reset是直接删除指定的commit。
 
-### 删除历史某次提交
+### 删除历史提交
 1. 查看历史纪录，找到 commit_id
 
         git log --oneline
-相关命令：
-
+        相关参数：
         # 显示每次修改的文件列表及修改状态
         git log --name-status 
         # 显示每次修改的文件列表
@@ -46,3 +45,10 @@
 * HEAD 最近一个提交     
 * HEAD^ 上一次      
 * <commit_id> 每次commit的SHA1值. 可以用git log 看到,也可以在页面上commit标签页里找到      
+
+### 删除历史某次提交
+输入命令：
+
+        git rebase -i "commit id"
+执行后经如 vim 界面，列出 commit id 之后的提交，移动光标到需要删除的提交记录上，将行首的pick替换为drop 后，保存推出即可。
+
