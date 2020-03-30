@@ -60,7 +60,7 @@ Git 仓库目录是 Git 用来保存项目的元数据和对象数据库的地�
     - [ ] [git merge --squash 和 rebase 区别](./illustrate/squash-rebase.md)      
     - [ ] [删除提交记录](./illustrate/delete-commit.md)      
     - [x] [文件状态](./illustrate/git-status.md)       
-    - [x] [克隆最近一个分支](./illustrate/clone-last.md)       
+    - [ ] [克隆最近一个分支](./illustrate/clone-last.md)       
 - [ ] **注意事项**
     - [ ] [忽略文件](./illustrate/ignore.md)
     - [x] [常见问题](./illustrate/question.md) 
