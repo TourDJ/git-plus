@@ -22,7 +22,7 @@
 ![git 文件流向示意图](../images/git-workspace-stage-history.png)    
 图一: git 文件流向示意图
 
-其中，`history`代表版本库，`stage` 代表暂存区，`work` 代表工作区
+其中，`history`代表版本库，`stage` 代表暂存区，`working directory` 代表工作区
 
 参数：
 * --soft  ：   修改版本库，保留暂存区，保留工作区。
