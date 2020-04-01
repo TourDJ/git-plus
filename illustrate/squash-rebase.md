@@ -1,5 +1,5 @@
 
-## git merge --squash 和 rebase 区别
+## 分支合并的几种方式
 
 git 在使用 `merge pull request` 合并代码的时候，有三种方式：
 
