@@ -183,7 +183,7 @@ git rm 命令后面可以列出文件或者目录的名字，也可以使用 glo
 ***
 
 ### <a id="git_log">查看提交历史<a/>
-git log 查看提交历史  
+`git log` 查看提交历史  
 
     $ git log
     commit ca82a6dff817ec66f44342007202690a93763949
@@ -197,6 +197,20 @@ git log 查看提交历史
 
     $ git log -p -2
     ......
+
+`--oneline` 标记将每个commit压缩成一行，-n 来限制输出的数量
+
+    $ git long --oneline -n 8
+    717c97a (HEAD -> master, upstream/master) Merge pull request #11 from Smallbucket/master
+    d3ab992 Update README.md
+    8b78f95 Create clone-last.md
+    dd6c553 Update README.md
+    29a7e56 (origin/master, origin/HEAD) Merge pull request #10 from Smallbucket/master
+    8ed1ed4 Update README.md
+    5e8a847 Create git-status.md
+    c4ef2f7 Merge pull request #9 from Smallbucket/master
+
+更多查看[格式化log输出](https://www.cnblogs.com/irocker/p/advanced-git-log.html)         
 ***
 
 ### <a id="git_cancel">撤消操作<a/>
