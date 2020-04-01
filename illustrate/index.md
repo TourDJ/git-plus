@@ -1,16 +1,17 @@
-  
-- [初始化](./base-command.md#git_init)  
-- [克隆](./base-command.md#git_clone)     
-- [检查状态](./base-command.md#git_status)    
-- [跟踪新文件](./base-command.md#git_add)      
-- [提交更新](./base-command.md#git_commit)     
-- [移除文件](./base-command.md#git_remove)     
-- [移动文件](./base-command.md#git_move)      
-- [撤消操作](./base-command.md#git_cancle)    
-- [取消暂存的文件](./base-command.md#git_reset)     
-- [撤消对文件的修改/切换分支](./base-command.md#git_checkout)     
+- [基本命令](#git_command)         
+  - [初始化](#git_init)  
+  - [克隆](#git_clone)     
+  - [检查状态](#git_status)    
+  - [跟踪新文件](#git_add)      
+  - [提交更新](#git_commit)     
+  - [移除文件](#git_remove)     
+  - [移动文件](#git_move)      
+  - [查看提交历史](#git_log)       
+  - [撤消操作](#git_cancle)    
+  - [取消暂存的文件](#git_reset)     
+  - [撤消对文件的修改/切换分支](#git_checkout)     
 
-## <a id="git_command">git 命令<a/>
+## <a id="git_command">基本命令<a/>
 
 ### <a id="git_init">初始化<a/>
   
@@ -77,7 +78,7 @@ git status 命令的输出十分详细，但其用语有些繁琐。
 * 新添加到暂存区中的文件前面有 A 标记   
 * 改过的文件前面有 M 标记。    
   
-> 你可能注意到了 M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。
+> 你可能注意到了 M 有两个可以出现的位置，出现在右边的 M 表示该文件被修改了但是还没放入暂存区，出现在靠左边的 M 表示该文件被修改了并放入了暂存区。更多状态请[查看](./git-status.md)。
 ***
 
 ###  <a id="git_add">跟踪新文件<a/>
@@ -181,7 +182,8 @@ git rm 命令后面可以列出文件或者目录的名字，也可以使用 glo
     $ git add README
 ***
 
-### <a id="git_status">git log 查看提交历史<a/>
+### <a id="git_log">查看提交历史<a/>
+`git log` 查看提交历史  
 
     $ git log
     commit ca82a6dff817ec66f44342007202690a93763949
@@ -195,6 +197,20 @@ git rm 命令后面可以列出文件或者目录的名字，也可以使用 glo
 
     $ git log -p -2
     ......
+
+`--oneline` 标记将每个commit压缩成一行，-n 来限制输出的数量
+
+    $ git long --oneline -n 8
+    717c97a (HEAD -> master, upstream/master) Merge pull request #11 from Smallbucket/master
+    d3ab992 Update README.md
+    8b78f95 Create clone-last.md
+    dd6c553 Update README.md
+    29a7e56 (origin/master, origin/HEAD) Merge pull request #10 from Smallbucket/master
+    8ed1ed4 Update README.md
+    5e8a847 Create git-status.md
+    c4ef2f7 Merge pull request #9 from Smallbucket/master
+
+更多查看[格式化log输出](https://www.cnblogs.com/irocker/p/advanced-git-log.html)         
 ***
 
 ### <a id="git_cancel">撤消操作<a/>
