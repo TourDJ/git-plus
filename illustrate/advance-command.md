@@ -1,22 +1,24 @@
+- [进阶命令](#advanced_command)      
+  - [查看远程仓库](#git_remote)      
+    - [添加远程仓库](#git_remoteadd)      
+    - [查看远程仓库详细信息](#git_remoteshow)       
+    - [远程仓库的重命名](#git_remoterename)      
+    - [远程仓库的移除](#git_remoterm)     
+    - [更新获取地址方式](#git_remoteseturl)    
+  - [从远程仓库中拉取](#git_fetch)     
+  - [从远程仓库中抓取与合并](#git_pull)     
+  - [推送到远程仓库](#git_push)     
+  - [储藏你的工作](#git_stash)         
+  - [逐行显示该文件的修改记录](#git_blame)         
+  - [远程仓库回滚](#git_rollback)                
+  - [比较文件的差异](#git_diff)  
+  - [存储用户名与密码](#git_username) 
 
-- [查看远程仓库](#git_remote)      
-  - [添加远程仓库](#git_remoteadd)      
-  - [查看远程仓库详细信息](#git_remoteshow)       
-  - [远程仓库的重命名](#git_remoterename)      
-  - [远程仓库的移除](#git_remoterm)     
-  - [更新获取地址方式](#git_remoteseturl)    
-- [从远程仓库中拉取](#git_fetch)     
-- [从远程仓库中抓取与合并](#git_pull)     
-- [推送到远程仓库](#git_push)     
-- [储藏你的工作](#git_stash)         
-- [逐行显示该文件的修改记录](#git_blame)         
-- [远程仓库回滚](#git_rollback)                
-- [比较文件的差异](#git_diff)  
-- [存储用户名与密码](#git_username) 
-
+## <a id="advanced_command">进阶命令</a>
 
 ### <a id="git_remote">查看远程仓库<a/>
 `git remote`: 查看远程仓库
+  
     $ git remote
     origin
 你也可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。
@@ -27,38 +29,41 @@
 
 #### <a id="git_remoteadd">添加远程仓库<a/>
 `git remote add`: 添加远程仓库
+
 在本地的git仓库"添加一个远程仓库",当然这个远程仓库还是你自己的这个目录。
-$ git remote add origin ssh://你的IP/~/testgit/.git
-    
+
+    $ git remote add origin ssh://你的IP/~/testgit/.git    
     $ git remote
     origin
+
+添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写。    
+    
     $ git remote add pb https://github.com/paulboone/ticgit
     $ git remote -v
     origin  https://github.com/schacon/ticgit (fetch)
     origin  https://github.com/schacon/ticgit (push)
     pb  https://github.com/paulboone/ticgit (fetch)
     pb  https://github.com/paulboone/ticgit (push)
-添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写。
 
 
 #### <a id="git_remoteshow">查看远程仓库详细信息<a/>
-git remote show 查看远程仓库详细信息
+`git remote show`: 查看远程仓库详细信息
 
-$ git remote show origin
-* remote origin
-  Fetch URL: https://github.com/schacon/ticgit
-  Push  URL: https://github.com/schacon/ticgit
-  HEAD branch: master
-  Remote branches:
-    master                               tracked
-    dev-branch                           tracked
-  Local branch configured for 'git pull':
-    master merges with remote master
-  Local ref configured for 'git push':
-    master pushes to master (up to date)
+    $ git remote show origin
+    * remote origin
+      Fetch URL: https://github.com/schacon/ticgit
+      Push  URL: https://github.com/schacon/ticgit
+      HEAD branch: master
+      Remote branches:
+        master                               tracked
+        dev-branch                           tracked
+      Local branch configured for 'git pull':
+        master merges with remote master
+      Local ref configured for 'git push':
+        master pushes to master (up to date)
 
 #### <a id="git_remoterename">远程仓库的重命名<a/>
-git remote rename 远程仓库的重命名
+`git remote rename`: 远程仓库的重命名
 
     $ git remote rename pb paul
     $ git remote
@@ -66,15 +71,16 @@ git remote rename 远程仓库的重命名
     paul
 
 #### <a id="git_remoterm">远程仓库的移除<a/>
-git remote rm 远程仓库的移除
+`git remote rm`: 远程仓库的移除
 
     $ git remote rm paul
     $ git remote
     origin
 
 ### <a id="git_remoteseturl">更新获取地址方式<a/>
-git remote set-url 更新获取地址方式
-> set-url 有两个参数：当前远程库名字、为远程库新设置的地址
+`git remote set-url`: 更新获取地址方式
+  
+set-url 有两个参数：当前远程库名字、为远程库新设置的地址
 
     git remote set-url origin http://git.example.cn:3000/project/ptest.git
 
@@ -82,27 +88,33 @@ git remote set-url 更新获取地址方式
 
 ### <a id="git_fetch">从远程仓库中拉取<a/>
 `git fetch`: 从远程仓库中拉取
+
 这个命令会访问远程仓库，从中拉取所有你还没有的数据。 执行完成后，你将会拥有那个远程仓库中所有分支的引用，可以随时合并或查看。
 
     $ git fetch [remote-name]
-git fetch origin 会抓取克隆（或上一次抓取）后新推送的所有工作。 必须注意 git fetch 命令会将数据拉取到你的本地仓库 - 它并不会自动合并或修改你当前的工作。 当准备好时你必须手动将其合并入你的工作。
+`git fetch origin` 会抓取克隆（或上一次抓取）后新推送的所有工作。 
+
+> 必须注意 `git fetch` 命令会将数据拉取到你的本地仓库，它并不会自动合并或修改你当前的工作。当准备好时你必须手动将其合并入你的工作。
 ***
 
 ### <a id="git_pull">从远程仓库中抓取与合并<a/>
-git pull 从远程仓库中抓取与拉取
+`git pull`: 从远程仓库中抓取与拉取
+
 自动的抓取然后合并远程分支到当前分支。 
 
     $ git pull [remote-name]
 ***
 
 ### <a id="git_push">推送到远程仓库<a/>
-git push 推送到远程仓库
+`git push`: 推送到远程仓库
+    
     $ git push origin master
 当你和其他人在同一时间克隆，他们先推送到上游然后你再推送到上游，你的推送就会毫无疑问地被拒绝。 你必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。
 ***
 
 ### <a id="git_stash">储藏你的工作<a/>
-git stash 储藏你的工作
+`git stash`: 储藏你的工作
+
 为了演示这一功能，你可以进入你的项目，在一些文件上进行工作，有可能还暂存其中一个变更。如果你运行 git status，你可以看到你的中间状态：
 
     $ git status
@@ -135,11 +147,13 @@ git stash 储藏你的工作
 ***
 
 ### <a id="git_blame">逐行显示该文件的修改记录<a/> 
-git blame 逐行显示该文件的修改记录
+`git blame`: 逐行显示该文件的修改记录
+
 命令模式会显示所有行的信息。我们可以利用"<开始>，<结束>"表示，<开始>和<结束>参数可以是数字。
 
     $ git blame -L 12,13 hello.html 
-将显示第12、13行代码的信息
+将显示第12、13行代码的信息      
+
 <结束>这个参数不必非得指定一个数字，可以使用+N或者-N指定范围。
     
     $ git blame -L 12,-3 hello.html

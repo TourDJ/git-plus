@@ -1,4 +1,5 @@
 
+## 克隆最近一个分支
 当项目过大时，git clone会出现超时失败，解决方法很简单，在git clone时加上--depth=1即可解决。
 
     git clone --depth=1 xxxxxx

@@ -1,4 +1,5 @@
 
+- HEAD 的含义及相关使用
   - [HEAD 的含义](#head)      
   - [git reset 使用](#reset)     
   - [显示整个本地仓储的提交](#reflog)   
@@ -6,9 +7,9 @@
   
 
 ## <a id="head">HEAD 的含义</a>
-在 git 中，用HEAD表示当前版本，也就是最新的提交，比如：3628164...882e1e0，上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
+在 git 中，用`HEAD`表示当前版本，也就是最新的提交，比如：3628164...882e1e0，上一个版本就是`HEAD^`，上上一个版本就是`HEAD^^`，当然往上100个版本写100个^比较容易数不过来，所以写成`HEAD~100`。
 
- * HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令 `git reset --hard commit_id`。
+ * `HEAD`指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令 `git reset --hard commit_id`。
  * 穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
  * 要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 
@@ -16,19 +17,21 @@
 命令格式：
 
     git reset [ –-soft | –-mixed | –-hard] <commit>
-git reset <commit> 的意思就是 把HEAD移到 `<commit>`。
+`git reset <commit>` 的意思就是 把HEAD移到 `<commit>`。
   
 ![git 文件流向示意图](../images/git-workspace-stage-history.png)    
-图: git 文件流向示意图
-  
-其中：      
-* --soft：   修改版本库，保留暂存区，保留工作区。
-* --mixed：  修改版本库，修改暂存区，保留工作区。（默认参数）
-* --hard：   修改版本库，修改暂存区，修改工作区。
+图一: git 文件流向示意图
+
+其中，`history`代表版本库，`stage` 代表暂存区，`working directory` 代表工作区
+
+参数：
+* --soft  ：   修改版本库，保留暂存区，保留工作区。
+* --mixed ：   修改版本库，修改暂存区，保留工作区。（默认参数）
+* --hard  ：   修改版本库，修改暂存区，修改工作区。
 
 ### <a id="reflog">显示整个本地仓储的提交<a/>
-git reflog 显示整个本地仓储的提交
-显示整个本地仓储的commit, 包括所有branch的commit, 甚至包括已经撤销的commit, 只要HEAD发生了变化, 就会在reflog里面看得到. git log只包括当前分支的commit。
+`git reflog` 显示整个本地仓储的 commit, 包括所有 branch 的 commit, 甚至包括已经撤销的 commit, 只要HEAD发生了变化, 就会在reflog里面看得到.  `git log`只包括当前分支的commit。
+  
 例如：
 
     $ git reflog
