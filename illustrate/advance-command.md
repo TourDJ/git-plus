@@ -18,6 +18,7 @@
 
 ### <a id="git_remote">查看远程仓库<a/>
 `git remote`: 查看远程仓库
+  
     $ git remote
     origin
 你也可以指定选项 -v，会显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL。
