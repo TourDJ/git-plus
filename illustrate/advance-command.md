@@ -1,19 +1,20 @@
+- [进阶命令](#advanced_command)      
+  - [查看远程仓库](#git_remote)      
+    - [添加远程仓库](#git_remoteadd)      
+    - [查看远程仓库详细信息](#git_remoteshow)       
+    - [远程仓库的重命名](#git_remoterename)      
+    - [远程仓库的移除](#git_remoterm)     
+    - [更新获取地址方式](#git_remoteseturl)    
+  - [从远程仓库中拉取](#git_fetch)     
+  - [从远程仓库中抓取与合并](#git_pull)     
+  - [推送到远程仓库](#git_push)     
+  - [储藏你的工作](#git_stash)         
+  - [逐行显示该文件的修改记录](#git_blame)         
+  - [远程仓库回滚](#git_rollback)                
+  - [比较文件的差异](#git_diff)  
+  - [存储用户名与密码](#git_username) 
 
-- [查看远程仓库](#git_remote)      
-  - [添加远程仓库](#git_remoteadd)      
-  - [查看远程仓库详细信息](#git_remoteshow)       
-  - [远程仓库的重命名](#git_remoterename)      
-  - [远程仓库的移除](#git_remoterm)     
-  - [更新获取地址方式](#git_remoteseturl)    
-- [从远程仓库中拉取](#git_fetch)     
-- [从远程仓库中抓取与合并](#git_pull)     
-- [推送到远程仓库](#git_push)     
-- [储藏你的工作](#git_stash)         
-- [逐行显示该文件的修改记录](#git_blame)         
-- [远程仓库回滚](#git_rollback)                
-- [比较文件的差异](#git_diff)  
-- [存储用户名与密码](#git_username) 
-
+## <a id="advanced_command">进阶命令</a>
 
 ### <a id="git_remote">查看远程仓库<a/>
 `git remote`: 查看远程仓库
