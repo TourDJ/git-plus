@@ -6,6 +6,7 @@
   - [提交更新](#git_commit)     
   - [移除文件](#git_remove)     
   - [移动文件](#git_move)      
+  - [查看提交历史](#git_status)       
   - [撤消操作](#git_cancle)    
   - [取消暂存的文件](#git_reset)     
   - [撤消对文件的修改/切换分支](#git_checkout)     
@@ -181,7 +182,8 @@ git rm 命令后面可以列出文件或者目录的名字，也可以使用 glo
     $ git add README
 ***
 
-### <a id="git_status">git log 查看提交历史<a/>
+### <a id="git_status">查看提交历史<a/>
+git log 查看提交历史  
 
     $ git log
     commit ca82a6dff817ec66f44342007202690a93763949
