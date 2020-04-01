@@ -1,14 +1,14 @@
 - [git 命令](#git_command)         
   - [初始化](#git_init)  
-  - [克隆](./base-command.md#git_clone)     
-  - [检查状态](./base-command.md#git_status)    
-  - [跟踪新文件](./base-command.md#git_add)      
-  - [提交更新](./base-command.md#git_commit)     
-  - [移除文件](./base-command.md#git_remove)     
-  - [移动文件](./base-command.md#git_move)      
-  - [撤消操作](./base-command.md#git_cancle)    
-  - [取消暂存的文件](./base-command.md#git_reset)     
-  - [撤消对文件的修改/切换分支](./base-command.md#git_checkout)     
+  - [克隆](#git_clone)     
+  - [检查状态](#git_status)    
+  - [跟踪新文件](#git_add)      
+  - [提交更新](#git_commit)     
+  - [移除文件](#git_remove)     
+  - [移动文件](#git_move)      
+  - [撤消操作](#git_cancle)    
+  - [取消暂存的文件](#git_reset)     
+  - [撤消对文件的修改/切换分支](#git_checkout)     
 
 ## <a id="git_command">git 命令<a/>
 
