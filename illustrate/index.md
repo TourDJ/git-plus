@@ -1,4 +1,4 @@
-- [git 命令](#git_command)         
+- [基本命令](#git_command)         
   - [初始化](#git_init)  
   - [克隆](#git_clone)     
   - [检查状态](#git_status)    
@@ -11,7 +11,7 @@
   - [取消暂存的文件](#git_reset)     
   - [撤消对文件的修改/切换分支](#git_checkout)     
 
-## <a id="git_command">git 命令<a/>
+## <a id="git_command">基本命令<a/>
 
 ### <a id="git_init">初始化<a/>
   
