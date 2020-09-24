@@ -32,3 +32,19 @@ git 不让提交，认为是写错了 origin ，如果确定是这个 origin 就
 如果有设置了默认上传分支就可以用下面代码
 
     git pull --allow-unrelated-histories
+
+
+
+§ `fatal: Unable to create 'E:/workspace2/ProductCertificate/.git/index.lock': File exists.`
+
+Another git process seems to be running in this repository, e.g. an editor opened by 'git commit'. 
+Please make sure all processes are terminated then try again. If it still fails, a git process may have crashed in this repository earlier: 
+remove the file manually to continue.
+
+.git下的index.lock文件，在进行某些比较费时的git操作时自动生成，操作结束后自动删除，相当于一个锁定文件，目的在于防止对一个目录同时进行多个操作。有时强制关闭进行中的git操作，这个文件没有被自动删除，之后就无法进行其他git操作，必须手动删除。
+
+解决方法:                
+找到.git/index.lock文件，直接删除即可，或者执行git命令
+
+    git clean -f .git/index.lock
+
